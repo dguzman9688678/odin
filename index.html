@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ODIN Enterprise Security Platform</title>
-    <meta name="description" content="Advanced AI-powered cybersecurity platform with real-time threat detection and binary tree optimization">
     <style>
         * {
             margin: 0;
@@ -14,464 +13,360 @@
         }
 
 ```
-    html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-    }
-
     body {
-        font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-        background: linear-gradient(135deg, #0a0e27 0%, #1e2139 50%, #000000 100%);
-        background-attachment: fixed;
-        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #0f172a;
+        color: #f1f5f9;
         min-height: 100vh;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
     }
 
-    .container {
+    .header {
+        background: linear-gradient(135deg, #1e293b, #334155);
+        border-bottom: 1px solid #475569;
+        padding: 1rem 2rem;
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         max-width: 1400px;
         margin: 0 auto;
-        padding: 2rem 1rem;
     }
 
-    /* Header Section */
-    .header {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-        padding: 3rem 2rem;
-        margin-bottom: 2rem;
-        text-align: center;
-        backdrop-filter: blur(10px);
-    }
-
-    .header h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 800;
-        background: linear-gradient(135deg, #0052d4 0%, #4facfe 100%);
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
     }
 
-    .header p {
-        font-size: clamp(1rem, 2.5vw, 1.25rem);
-        color: #b8bcc8;
-        font-weight: 400;
-        max-width: 600px;
+    .status-badge {
+        background: #065f46;
+        color: #10b981;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid #059669;
+    }
+
+    .nav {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .nav-button {
+        background: #475569;
+        color: #f1f5f9;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .nav-button:hover {
+        background: #64748b;
+    }
+
+    .nav-button.active {
+        background: #3b82f6;
+    }
+
+    .simulate-btn {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        margin-right: 1rem;
+        transition: background 0.2s;
+    }
+
+    .simulate-btn:hover {
+        background: #1d4ed8;
+    }
+
+    .main-content {
+        padding: 2rem;
+        max-width: 1400px;
         margin: 0 auto;
     }
 
-    /* Status Grid */
-    .status-grid {
+    .metrics-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 1.5rem;
-        margin: 2rem 0;
-    }
-
-    .status-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.75rem;
-        padding: 1.5rem;
-        text-align: center;
-        transition: all 0.3s ease;
-    }
-
-    .status-card:hover {
-        transform: translateY(-2px);
-        border-color: rgba(79, 172, 254, 0.3);
-    }
-
-    .status-value {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #00ff88;
-        margin-bottom: 0.5rem;
-        line-height: 1;
-    }
-
-    .status-label {
-        font-size: 0.875rem;
-        color: #6c7293;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 500;
-    }
-
-    /* Controls */
-    .controls {
-        display: flex;
-        gap: 1rem;
         margin-bottom: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .btn {
-        padding: 0.75rem 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.5rem;
-        color: #ffffff;
-        font-weight: 600;
-        font-size: 0.875rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-    }
-
-    .btn:hover {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateY(-1px);
-    }
-
-    .btn-primary {
-        background: linear-gradient(135deg, #0052d4 0%, #4facfe 100%);
-        border: none;
-        box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
-    }
-
-    .btn-primary:hover {
-        box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
-    }
-
-    /* Section */
-    .section {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 1rem;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        backdrop-filter: blur(10px);
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 2rem;
-        color: #ffffff;
-        text-align: center;
-    }
-
-    /* Metrics Grid */
-    .metrics-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
     }
 
     .metric-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: #1e293b;
+        border: 1px solid #475569;
         border-radius: 0.75rem;
         padding: 1.5rem;
-        transition: all 0.3s ease;
+        transition: all 0.2s;
     }
 
     .metric-card:hover {
-        border-color: rgba(79, 172, 254, 0.3);
-        transform: translateY(-2px);
+        border-color: #64748b;
     }
 
     .metric-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     .metric-title {
+        color: #94a3b8;
         font-size: 0.875rem;
         font-weight: 500;
-        color: #b8bcc8;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    }
+
+    .metric-indicator {
+        width: 12px;
+        height: 12px;
+        background: #3b82f6;
+        border-radius: 50%;
     }
 
     .metric-value {
-        font-size: 2.5rem;
-        font-weight: 800;
-        color: #00ff88;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #f1f5f9;
         margin-bottom: 0.5rem;
-        line-height: 1;
     }
 
     .metric-change {
         font-size: 0.875rem;
-        color: #4facfe;
-        font-weight: 500;
+        color: #10b981;
     }
 
-    /* Table - Mobile First Approach */
-    .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 0.75rem;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+    .metric-change.negative {
+        color: #ef4444;
     }
 
-    .comparison-table {
-        width: 100%;
-        min-width: 800px;
-        border-collapse: collapse;
-        background: rgba(255, 255, 255, 0.02);
-    }
-
-    .comparison-table th {
-        padding: 1rem 0.75rem;
-        text-align: left;
-        font-weight: 600;
-        color: #b8bcc8;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-        background: rgba(255, 255, 255, 0.05);
-        white-space: nowrap;
-    }
-
-    .comparison-table td {
-        padding: 1rem 0.75rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        color: #ffffff;
-        font-size: 0.875rem;
-        vertical-align: middle;
-    }
-
-    .comparison-table tr:last-child td {
-        border-bottom: none;
-    }
-
-    .platform-name {
-        font-weight: 700;
-        white-space: nowrap;
-    }
-
-    .platform-odin {
-        color: #4facfe;
-    }
-
-    /* Performance Badges */
-    .performance-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        border-radius: 1rem;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        white-space: nowrap;
-    }
-
-    .badge-excellent {
-        background: rgba(0, 255, 136, 0.1);
-        color: #00ff88;
-        border: 1px solid rgba(0, 255, 136, 0.3);
-    }
-
-    .badge-good {
-        background: rgba(255, 184, 0, 0.1);
-        color: #ffb800;
-        border: 1px solid rgba(255, 184, 0, 0.3);
-    }
-
-    .badge-poor {
-        background: rgba(255, 71, 87, 0.1);
-        color: #ff4757;
-        border: 1px solid rgba(255, 71, 87, 0.3);
-    }
-
-    /* Algorithm Grid */
-    .algorithm-grid {
+    .charts-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
     }
 
-    .algorithm-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+    .chart-card {
+        background: #1e293b;
+        border: 1px solid #475569;
         border-radius: 0.75rem;
         padding: 1.5rem;
-        transition: all 0.3s ease;
     }
 
-    .algorithm-card:hover {
-        border-color: rgba(79, 172, 254, 0.3);
-        transform: translateY(-2px);
-    }
-
-    .algorithm-title {
-        font-size: 1.125rem;
+    .chart-title {
+        font-size: 1.25rem;
         font-weight: 600;
-        color: #4facfe;
-        margin-bottom: 0.75rem;
-    }
-
-    .complexity-badge {
-        display: inline-block;
-        padding: 0.25rem 0.75rem;
-        background: rgba(79, 172, 254, 0.1);
-        color: #4facfe;
-        border: 1px solid rgba(79, 172, 254, 0.3);
-        border-radius: 1rem;
-        font-size: 0.75rem;
-        font-weight: 600;
+        color: #f1f5f9;
         margin-bottom: 1rem;
-        letter-spacing: 0.5px;
     }
 
-    .algorithm-description {
-        color: #b8bcc8;
+    .chart-placeholder {
+        background: #0f172a;
+        border: 1px solid #475569;
+        border-radius: 0.5rem;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64748b;
         font-size: 0.875rem;
-        line-height: 1.6;
     }
 
-    /* Mobile Card Layout for Table */
-    .mobile-cards {
-        display: none;
-    }
-
-    .mobile-card {
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+    .threats-section {
+        background: #1e293b;
+        border: 1px solid #475569;
         border-radius: 0.75rem;
         padding: 1.5rem;
-        margin-bottom: 1rem;
     }
 
-    .mobile-card-header {
-        font-weight: 700;
-        font-size: 1.125rem;
+    .threat-card {
+        background: #374151;
+        border: 1px solid #4b5563;
+        border-radius: 0.5rem;
+        padding: 1rem;
         margin-bottom: 1rem;
-        color: #ffffff;
+        transition: background 0.2s;
     }
 
-    .mobile-card-row {
+    .threat-card:hover {
+        background: #4b5563;
+    }
+
+    .threat-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        margin-bottom: 0.75rem;
     }
 
-    .mobile-card-row:last-child {
+    .threat-type {
+        font-weight: 600;
+        color: #f1f5f9;
+    }
+
+    .risk-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid;
+    }
+
+    .risk-critical {
+        background: #7f1d1d;
+        color: #fca5a5;
+        border-color: #dc2626;
+    }
+
+    .risk-high {
+        background: #7c2d12;
+        color: #fdba74;
+        border-color: #ea580c;
+    }
+
+    .risk-medium {
+        background: #713f12;
+        color: #fde047;
+        border-color: #ca8a04;
+    }
+
+    .status-badge-threat {
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    .status-blocked {
+        background: #064e3b;
+        color: #6ee7b7;
+    }
+
+    .status-monitoring {
+        background: #713f12;
+        color: #fde047;
+    }
+
+    .threat-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+    }
+
+    .threat-detail {
+        color: #94a3b8;
+    }
+
+    .threat-detail-value {
+        color: #f1f5f9;
+        margin-left: 0.5rem;
+    }
+
+    .threat-description {
+        color: #cbd5e1;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .threat-timestamp {
+        color: #64748b;
+        font-size: 0.75rem;
+    }
+
+    .system-status {
+        background: #1e293b;
+        border: 1px solid #475569;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .status-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .status-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #374151;
+    }
+
+    .status-item:last-child {
         border-bottom: none;
     }
 
-    .mobile-card-label {
-        font-size: 0.875rem;
-        color: #b8bcc8;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
+    .status-label {
+        color: #94a3b8;
     }
 
-    .mobile-card-value {
-        font-size: 0.875rem;
-        color: #ffffff;
-        text-align: right;
+    .status-value {
+        background: #064e3b;
+        color: #6ee7b7;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-size: 0.75rem;
     }
 
-    /* Responsive Design */
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: #374151;
+        border-radius: 4px;
+        overflow: hidden;
+        margin: 0.5rem 0;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: #3b82f6;
+        transition: width 0.3s ease;
+    }
+
+    .hidden {
+        display: none;
+    }
+
     @media (max-width: 768px) {
-        .container {
-            padding: 1rem 0.75rem;
-        }
-
-        .header {
-            padding: 2rem 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .section {
-            padding: 1.5rem 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .status-grid {
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        .header-content {
+            flex-direction: column;
             gap: 1rem;
         }
 
-        .status-card {
-            padding: 1rem;
-        }
-
-        .status-value {
-            font-size: 2rem;
+        .nav {
+            flex-wrap: wrap;
         }
 
         .metrics-grid {
             grid-template-columns: 1fr;
         }
 
-        .algorithm-grid {
+        .charts-grid {
             grid-template-columns: 1fr;
         }
 
-        .controls {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .btn {
-            width: 100%;
-            max-width: 300px;
-        }
-
-        /* Hide table, show cards on mobile */
-        .table-container {
-            display: none;
-        }
-
-        .mobile-cards {
-            display: block;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .status-grid {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .mobile-card-row {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
-        }
-
-        .mobile-card-value {
-            text-align: left;
-        }
-    }
-
-    /* Loading State */
-    .loading {
-        opacity: 0.7;
-        pointer-events: none;
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-    }
-
-    /* High contrast mode */
-    @media (prefers-contrast: high) {
-        .header, .section, .status-card, .metric-card, .algorithm-card {
-            border-color: rgba(255, 255, 255, 0.3);
+        .threat-details {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -479,293 +374,417 @@
 
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <h1>ODIN</h1>
-            <p>Enterprise AI Security Platform</p>
-        </header>
+    <header class="header">
+        <div class="header-content">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <h1 class="logo">ODIN Enterprise Security Platform</h1>
+                <div class="status-badge" id="connectionStatus">Connected</div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <button class="simulate-btn" onclick="simulateEvent()">Simulate Event</button>
+                <nav class="nav">
+                    <button class="nav-button active" onclick="showView('dashboard')">Dashboard</button>
+                    <button class="nav-button" onclick="showView('threats')">Threats</button>
+                    <button class="nav-button" onclick="showView('analytics')">Analytics</button>
+                </nav>
+            </div>
+        </div>
+    </header>
 
 ```
-    <!-- Controls -->
-    <div class="controls">
-        <button class="btn btn-primary" onclick="generateReport()">Generate Executive Report</button>
-        <button class="btn" onclick="refreshData()">Refresh Data</button>
-        <button class="btn" onclick="exportAnalysis()">Export Analysis</button>
-        <button class="btn" onclick="systemSettings()">System Settings</button>
-    </div>
-
-    <!-- Status Overview -->
-    <div class="status-grid">
-        <div class="status-card">
-            <div class="status-value">99.9%</div>
-            <div class="status-label">System Uptime</div>
-        </div>
-        <div class="status-card">
-            <div class="status-value">24ms</div>
-            <div class="status-label">Response Time</div>
-        </div>
-        <div class="status-card">
-            <div class="status-value">98.7%</div>
-            <div class="status-label">Detection Rate</div>
-        </div>
-        <div class="status-card">
-            <div class="status-value">0</div>
-            <div class="status-label">Critical Alerts</div>
-        </div>
-    </div>
-
-    <!-- Performance Metrics -->
-    <section class="section">
-        <h2 class="section-title">Real-Time Performance Metrics</h2>
+<main class="main-content">
+    <!-- Dashboard View -->
+    <div id="dashboard-view">
         <div class="metrics-grid">
             <div class="metric-card">
                 <div class="metric-header">
+                    <span class="metric-title">System Uptime</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value" id="uptime">99.97%</div>
+                <div class="metric-change">+0.03%</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
                     <span class="metric-title">Response Time</span>
+                    <div class="metric-indicator"></div>
                 </div>
-                <div class="metric-value">24ms</div>
-                <div class="metric-change">12% faster than baseline</div>
+                <div class="metric-value" id="responseTime">23ms</div>
+                <div class="metric-change">-5ms</div>
             </div>
+
             <div class="metric-card">
                 <div class="metric-header">
-                    <span class="metric-title">Threat Detection</span>
+                    <span class="metric-title">Threats Detected</span>
+                    <div class="metric-indicator"></div>
                 </div>
-                <div class="metric-value">98.7%</div>
-                <div class="metric-change">2.1% accuracy improvement</div>
+                <div class="metric-value" id="threatsDetected">1,247</div>
+                <div class="metric-change">+47 today</div>
             </div>
+
             <div class="metric-card">
                 <div class="metric-header">
-                    <span class="metric-title">Active Monitoring</span>
+                    <span class="metric-title">Detection Accuracy</span>
+                    <div class="metric-indicator"></div>
                 </div>
-                <div class="metric-value">7,340</div>
-                <div class="metric-change">Network endpoints secured</div>
+                <div class="metric-value" id="accuracy">98.7%</div>
+                <div class="metric-change">+2.1%</div>
             </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Active Connections</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value" id="activeConnections">7,485</div>
+                <div class="metric-change">+89</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Blocked Threats</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value" id="blockedThreats">1,089</div>
+                <div class="metric-change">100% success</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3 class="chart-title">Real-time Threat Detection</h3>
+                <div class="chart-placeholder">
+                    Live threat detection chart - Updates every 5 seconds
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">Response Latency</h3>
+                <div class="chart-placeholder">
+                    Response time monitoring - Average: 23ms
+                </div>
+            </div>
+        </div>
+
+        <div class="system-status">
+            <h3 class="chart-title">System Health</h3>
+            <div class="status-grid">
+                <div>
+                    <div class="status-item">
+                        <span class="status-label">AI Engine</span>
+                        <span class="status-value">ACTIVE</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Database</span>
+                        <span class="status-value">CONNECTED</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">API Gateway</span>
+                        <span class="status-value">OPERATIONAL</span>
+                    </div>
+                </div>
+                <div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span class="status-label">CPU Usage</span>
+                            <span style="color: #f1f5f9;">23%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 23%;"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span class="status-label">Memory</span>
+                            <span style="color: #f1f5f9;">41%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 41%; background: #10b981;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span class="status-label">Network</span>
+                            <span style="color: #f1f5f9;">67%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 67%; background: #f59e0b;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Threats View -->
+    <div id="threats-view" class="hidden">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; font-weight: bold;">Threat Analysis Center</h2>
+            <div style="display: flex; gap: 1rem;">
+                <select style="background: #374151; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; border: 1px solid #4b5563;">
+                    <option>All Threats</option>
+                    <option>Critical Only</option>
+                    <option>Last 24 Hours</option>
+                    <option>Blocked</option>
+                </select>
+                <button style="background: #3b82f6; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer;">
+                    Export Report
+                </button>
+            </div>
+        </div>
+
+        <div class="threats-section" id="threatsContainer">
+            <!-- Threats will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Analytics View -->
+    <div id="analytics-view" class="hidden">
+        <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 2rem;">Security Analytics</h2>
+        
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h3 class="chart-title">Threat Distribution</h3>
+                <div class="chart-placeholder">
+                    Malware: 35% | Phishing: 28% | Lateral Movement: 20% | Data Exfiltration: 17%
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3 class="chart-title">Accuracy Trend</h3>
+                <div class="chart-placeholder">
+                    24-hour accuracy trend - Current: 98.7%
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Average Detection Time</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value">18.5ms</div>
+                <div class="metric-change">-3.2ms improvement</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">False Positive Rate</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value">1.3%</div>
+                <div class="metric-change">-0.4% improvement</div>
+            </div>
+
             <div class="metric-card">
                 <div class="metric-header">
                     <span class="metric-title">System Load</span>
+                    <div class="metric-indicator"></div>
                 </div>
-                <div class="metric-value">18%</div>
-                <div class="metric-change">Optimal operational range</div>
+                <div class="metric-value">23%</div>
+                <div class="metric-change">Optimal range</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-title">Threat Sources</span>
+                    <div class="metric-indicator"></div>
+                </div>
+                <div class="metric-value">147</div>
+                <div class="metric-change">Unique IPs blocked</div>
             </div>
         </div>
-    </section>
-
-    <!-- Competitive Analysis -->
-    <section class="section">
-        <h2 class="section-title">Competitive Performance Analysis</h2>
-        
-        <!-- Desktop Table -->
-        <div class="table-container">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Platform</th>
-                        <th>Response Time</th>
-                        <th>Detection Rate</th>
-                        <th>Algorithm</th>
-                        <th>Classification</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="platform-name platform-odin">ODIN</td>
-                        <td>24ms</td>
-                        <td>98.7%</td>
-                        <td><span class="performance-badge badge-excellent">Advanced Binary Trees</span></td>
-                        <td><span class="performance-badge badge-excellent">Mission Critical</span></td>
-                    </tr>
-                    <tr>
-                        <td class="platform-name">CrowdStrike Falcon</td>
-                        <td>47ms</td>
-                        <td>94.2%</td>
-                        <td><span class="performance-badge badge-good">Standard Implementation</span></td>
-                        <td><span class="performance-badge badge-good">Enterprise Grade</span></td>
-                    </tr>
-                    <tr>
-                        <td class="platform-name">SentinelOne</td>
-                        <td>62ms</td>
-                        <td>91.8%</td>
-                        <td><span class="performance-badge badge-good">Basic Optimization</span></td>
-                        <td><span class="performance-badge badge-good">Business Class</span></td>
-                    </tr>
-                    <tr>
-                        <td class="platform-name">Carbon Black</td>
-                        <td>89ms</td>
-                        <td>88.4%</td>
-                        <td><span class="performance-badge badge-poor">Legacy Systems</span></td>
-                        <td><span class="performance-badge badge-poor">Standard Grade</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Mobile Cards -->
-        <div class="mobile-cards">
-            <div class="mobile-card">
-                <div class="mobile-card-header platform-odin">ODIN</div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Response Time</span>
-                    <span class="mobile-card-value">24ms</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Detection Rate</span>
-                    <span class="mobile-card-value">98.7%</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Algorithm</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-excellent">Advanced Binary Trees</span></span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Classification</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-excellent">Mission Critical</span></span>
-                </div>
-            </div>
-
-            <div class="mobile-card">
-                <div class="mobile-card-header">CrowdStrike Falcon</div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Response Time</span>
-                    <span class="mobile-card-value">47ms</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Detection Rate</span>
-                    <span class="mobile-card-value">94.2%</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Algorithm</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-good">Standard Implementation</span></span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Classification</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-good">Enterprise Grade</span></span>
-                </div>
-            </div>
-
-            <div class="mobile-card">
-                <div class="mobile-card-header">SentinelOne</div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Response Time</span>
-                    <span class="mobile-card-value">62ms</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Detection Rate</span>
-                    <span class="mobile-card-value">91.8%</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Algorithm</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-good">Basic Optimization</span></span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Classification</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-good">Business Class</span></span>
-                </div>
-            </div>
-
-            <div class="mobile-card">
-                <div class="mobile-card-header">Carbon Black</div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Response Time</span>
-                    <span class="mobile-card-value">89ms</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Detection Rate</span>
-                    <span class="mobile-card-value">88.4%</span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Algorithm</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-poor">Legacy Systems</span></span>
-                </div>
-                <div class="mobile-card-row">
-                    <span class="mobile-card-label">Classification</span>
-                    <span class="mobile-card-value"><span class="performance-badge badge-poor">Standard Grade</span></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Algorithm Architecture -->
-    <section class="section">
-        <h2 class="section-title">Advanced Algorithm Architecture</h2>
-        <div class="algorithm-grid">
-            <div class="algorithm-card">
-                <div class="algorithm-title">Binary Search Trees</div>
-                <div class="complexity-badge">O(log n)</div>
-                <div class="algorithm-description">
-                    Optimized threat detection algorithms utilizing logarithmic search complexity for real-time processing of large-scale security event datasets with guaranteed performance characteristics.
-                </div>
-            </div>
-            <div class="algorithm-card">
-                <div class="algorithm-title">AVL Tree Balancing</div>
-                <div class="complexity-badge">O(log n)</div>
-                <div class="algorithm-description">
-                    Self-balancing binary search tree implementation ensuring consistent performance characteristics under variable threat loads and dynamic data distribution patterns in enterprise environments.
-                </div>
-            </div>
-            <div class="algorithm-card">
-                <div class="algorithm-title">Graph Neural Networks</div>
-                <div class="complexity-badge">O(V + E)</div>
-                <div class="algorithm-description">
-                    Advanced machine learning models for pattern recognition and anomaly detection in complex network security event correlation analysis with deep learning optimization techniques.
-                </div>
-            </div>
-            <div class="algorithm-card">
-                <div class="algorithm-title">Decision Tree Classification</div>
-                <div class="complexity-badge">O(log n)</div>
-                <div class="algorithm-description">
-                    Hierarchical decision-making algorithms for automated threat classification and incident response prioritization with enterprise-grade accuracy and reliability standards.
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
+    </div>
+</main>
 
 <script>
-    // Enterprise-grade system logging
-    console.log('ODIN Enterprise Security Platform - System Initialized');
-    console.log('Advanced Binary Search Tree Implementation - Active');
-    console.log('Average Search Complexity: O(log n)');
-    console.log('Enterprise-grade threat detection system operational');
+    // System metrics that update in real-time
+    let systemData = {
+        uptime: 99.97,
+        responseTime: 23,
+        threatsDetected: 1247,
+        accuracy: 98.7,
+        activeConnections: 7485,
+        blockedThreats: 1089
+    };
 
-    // Button handlers
-    function generateReport() {
-        console.log('Executive Report Generation - Initiated');
-        alert('Executive Report Generation\n\nGenerating comprehensive security analysis report including performance metrics, threat analysis, competitive benchmarks, and technical specifications for enterprise review.');
-    }
-
-    function refreshData() {
-        console.log('Data Refresh - Real-time update initiated');
-        const cards = document.querySelectorAll('.metric-card, .status-card');
-        cards.forEach(card => card.classList.add('loading'));
-        
-        setTimeout(() => {
-            cards.forEach(card => card.classList.remove('loading'));
-            console.log('Data Refresh - Complete');
-        }, 1500);
-    }
-
-    function exportAnalysis() {
-        console.log('Analysis Export - Initiated');
-        alert('Analysis Export\n\nExporting detailed performance analysis, competitive benchmarks, and technical specifications in enterprise-standard formats (PDF, Excel, JSON).');
-    }
-
-    function systemSettings() {
-        console.log('System Settings - Access requested');
-        alert('System Settings\n\nEnterprise configuration panel access:\n• Security policy management\n• Integration settings\n• Alert thresholds\n• User access controls\n• API configuration');
-    }
-
-    // Performance monitoring
-    window.addEventListener('load', function() {
-        const loadTime = performance.now();
-        console.log(`Page Load Performance: ${loadTime.toFixed(2)}ms`);
-        
-        if (loadTime > 3000) {
-            console.warn('Page load time exceeds enterprise standards');
+    // Threat database
+    let threats = [
+        {
+            id: 'T001',
+            timestamp: new Date().toISOString(),
+            sourceIP: '192.168.1.100',
+            riskLevel: 'CRITICAL',
+            type: 'Malware Detection',
+            confidence: 96.5,
+            blocked: true,
+            description: 'Suspicious executable attempting to establish C2 connection'
+        },
+        {
+            id: 'T002',
+            timestamp: new Date(Date.now() - 300000).toISOString(),
+            sourceIP: '10.0.0.55',
+            riskLevel: 'HIGH',
+            type: 'Phishing Attempt',
+            confidence: 89.2,
+            blocked: true,
+            description: 'Email with malicious attachment detected'
+        },
+        {
+            id: 'T003',
+            timestamp: new Date(Date.now() - 600000).toISOString(),
+            sourceIP: '172.16.0.25',
+            riskLevel: 'MEDIUM',
+            type: 'Lateral Movement',
+            confidence: 78.4,
+            blocked: false,
+            description: 'Unusual network scanning pattern detected'
+        },
+        {
+            id: 'T004',
+            timestamp: new Date(Date.now() - 900000).toISOString(),
+            sourceIP: '203.0.113.45',
+            riskLevel: 'HIGH',
+            type: 'Data Exfiltration',
+            confidence: 92.8,
+            blocked: true,
+            description: 'Large data transfer to suspicious endpoint'
         }
-    });
+    ];
 
-    // Error handling
-    window.addEventListener('error', function(e) {
-        console.error('System Error:', e.message, 'at', e.filename, ':', e.lineno);
+    // View management
+    function showView(viewName) {
+        // Hide all views
+        document.getElementById('dashboard-view').classList.add('hidden');
+        document.getElementById('threats-view').classList.add('hidden');
+        document.getElementById('analytics-view').classList.add('hidden');
+
+        // Show selected view
+        document.getElementById(viewName + '-view').classList.remove('hidden');
+
+        // Update navigation
+        document.querySelectorAll('.nav-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        event.target.classList.add('active');
+
+        // Update content if threats view
+        if (viewName === 'threats') {
+            updateThreatsView();
+        }
+    }
+
+    // Simulate network event
+    function simulateEvent() {
+        const eventTypes = [
+            'Malware Detection',
+            'Phishing Attempt', 
+            'Data Exfiltration',
+            'Lateral Movement',
+            'Suspicious Login'
+        ];
+        const riskLevels = ['CRITICAL', 'HIGH', 'MEDIUM'];
+        const sourceIPs = ['192.168.1.100', '10.0.0.55', '172.16.0.25', '203.0.113.45'];
+
+        const newThreat = {
+            id: 'T' + Date.now(),
+            timestamp: new Date().toISOString(),
+            sourceIP: sourceIPs[Math.floor(Math.random() * sourceIPs.length)],
+            riskLevel: riskLevels[Math.floor(Math.random() * riskLevels.length)],
+            type: eventTypes[Math.floor(Math.random() * eventTypes.length)],
+            confidence: 70 + Math.random() * 30,
+            blocked: Math.random() > 0.2,
+            description: 'Real-time simulated security event'
+        };
+
+        threats.unshift(newThreat);
+        threats = threats.slice(0, 10); // Keep only last 10
+
+        // Update metrics
+        systemData.threatsDetected++;
+        systemData.responseTime = 18 + Math.floor(Math.random() * 12);
+        
+        if (newThreat.blocked) {
+            systemData.blockedThreats++;
+        }
+
+        updateDashboard();
+        updateThreatsView();
+
+        // Show alert
+        alert(`THREAT DETECTED!\n\nType: ${newThreat.type}\nRisk: ${newThreat.riskLevel}\nSource: ${newThreat.sourceIP}\nConfidence: ${newThreat.confidence.toFixed(1)}%\nStatus: ${newThreat.blocked ? 'BLOCKED' : 'MONITORING'}`);
+    }
+
+    // Update dashboard metrics
+    function updateDashboard() {
+        document.getElementById('uptime').textContent = systemData.uptime.toFixed(2) + '%';
+        document.getElementById('responseTime').textContent = systemData.responseTime + 'ms';
+        document.getElementById('threatsDetected').textContent = systemData.threatsDetected.toLocaleString();
+        document.getElementById('accuracy').textContent = systemData.accuracy + '%';
+        document.getElementById('activeConnections').textContent = systemData.activeConnections.toLocaleString();
+        document.getElementById('blockedThreats').textContent = systemData.blockedThreats.toLocaleString();
+    }
+
+    // Update threats view
+    function updateThreatsView() {
+        const container = document.getElementById('threatsContainer');
+        container.innerHTML = '';
+
+        threats.forEach(threat => {
+            const threatCard = document.createElement('div');
+            threatCard.className = 'threat-card';
+            
+            const riskClass = threat.riskLevel === 'CRITICAL' ? 'risk-critical' : 
+                             threat.riskLevel === 'HIGH' ? 'risk-high' : 'risk-medium';
+            
+            threatCard.innerHTML = `
+                <div class="threat-header">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span class="risk-badge ${riskClass}">${threat.riskLevel}</span>
+                        <span class="threat-type">${threat.type}</span>
+                    </div>
+                    <span class="status-badge-threat ${threat.blocked ? 'status-blocked' : 'status-monitoring'}">
+                        ${threat.blocked ? 'BLOCKED' : 'MONITORING'}
+                    </span>
+                </div>
+                
+                <div class="threat-details">
+                    <div class="threat-detail">
+                        Source IP:<span class="threat-detail-value">${threat.sourceIP}</span>
+                    </div>
+                    <div class="threat-detail">
+                        Confidence:<span class="threat-detail-value">${threat.confidence.toFixed(1)}%</span>
+                    </div>
+                </div>
+                
+                <p class="threat-description">${threat.description}</p>
+                <p class="threat-timestamp">${new Date(threat.timestamp).toLocaleString()}</p>
+            `;
+            
+            container.appendChild(threatCard);
+        });
+    }
+
+    // Real-time updates
+    setInterval(() => {
+        // Randomly update some metrics
+        systemData.activeConnections += Math.floor(Math.random() * 20) - 10;
+        systemData.responseTime = Math.max(15, Math.min(35, systemData.responseTime + Math.floor(Math.random() * 6) - 3));
+        
+        // Occasionally add a new threat
+        if (Math.random() > 0.9) {
+            simulateEvent();
+        }
+        
+        updateDashboard();
+    }, 8000);
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+        updateDashboard();
+        updateThreatsView();
     });
 </script>
 ```
